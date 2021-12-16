@@ -80,6 +80,11 @@ function App() {
     }
   };
 
+  const handleLogout = () => {
+    myStorage.removeItem("user");
+    setCurrentUser(null);
+  };
+
   return (
     <div className="App">
       <ReactMapGL
@@ -181,7 +186,9 @@ function App() {
         )}
 
         {currentUser ? (
-          <button className="button logout">Log Out</button>
+          <button className="button logout" onClick={handleLogout}>
+            Log Out
+          </button>
         ) : (
           <div className="buttons">
             <button
