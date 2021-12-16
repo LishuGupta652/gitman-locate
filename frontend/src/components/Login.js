@@ -34,11 +34,11 @@ const Login = ({ setShowLogin }) => {
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="username" ref={nameRef} />
         <input type="password" placeholder="password" ref={passwordRef} />
-        <button className="registerButton">Register</button>
+        <button className="loginButton">Login</button>
 
         {error && <span className="error">Something went wrong</span>}
       </form>
-      <Cancel className="registerCancel" onClick={() => setShowLogin(false)} />
+      <Cancel className="loginCancel" onClick={() => setShowLogin(false)} />
     </div>
   );
 };
