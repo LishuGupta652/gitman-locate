@@ -12,6 +12,7 @@ mongoose.connect(process.env.MONGODB_URI, () => {
 
 // Importing the routes
 const pinRoute = require("./routes/pin");
+const userRoute = require("./routes/user");
 // Using middleware for parsing the body of the request
 app.use(cors());
 app.use(express.json());
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Using the routes as middlesware
 app.use("/api/v1/pin", pinRoute);
+app.use("/api/v1/pin", userRoute);
 // using url shortner routes
 // using main routes
 app.get("/", (req, res) => {
