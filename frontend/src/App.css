@@ -136,4 +136,5 @@ textarea::placeholder {
   border-radius: 5px;
   color: white;
   background-color: tomato;
+  cursor: pointer;
 }

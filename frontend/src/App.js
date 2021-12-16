@@ -11,6 +11,11 @@ function App() {
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
+
+  const [title, setTitle] = useState("");
+  const [rating, setRating] = useState(0);
+  const [desc, setDesc] = useState("");
+
   const currentUser = "lishu";
 
   const [viewport, setViewport] = useState({
