@@ -1,6 +1,9 @@
 import { Room } from "@mui/icons-material";
+import { useState } from "react";
 
 const Register = () => {
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState(false);
   return (
     <div className="registerContainer">
       <div className="logo">
@@ -11,8 +14,11 @@ const Register = () => {
         <input type="email" placeholder="email" />
         <input type="password" placeholder="password" />
         <button className="registerButton">Register</button>
-        <span className="success">Successfull. You can login now</span>
-        <span className="error">Something went wrong</span>
+        {success && (
+          <span className="success">Successfull. You can login now</span>
+        )}
+
+        {error && <span className="error">Something went wrong</span>}
       </form>
     </div>
   );
