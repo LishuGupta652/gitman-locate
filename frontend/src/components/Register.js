@@ -2,7 +2,7 @@ import { Cancel, Room } from "@mui/icons-material";
 import { useRef, useState } from "react";
 import axios from "axios";
 
-const Register = () => {
+const Register = ({ setShowRegister }) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
   const nameRef = useRef();
@@ -44,7 +44,10 @@ const Register = () => {
 
         {error && <span className="error">Something went wrong</span>}
       </form>
-      <Cancel className="registerCancel" />
+      <Cancel
+        className="registerCancel"
+        onClick={() => setShowRegister(false)}
+      />
     </div>
   );
 };

@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import { FavoriteIcon, Room, Star } from "@mui/icons-material/";
+import { FavoriteIcon, Login, Room, Star } from "@mui/icons-material/";
 import axios from "axios";
 
 import { format } from "timeago.js";
@@ -190,13 +190,15 @@ function App() {
             </button>
             <button
               className="button register"
-              onClick={() => setShowLogin(!showLogin)}
+              onClick={() => setShowRegister(!showRegister)}
             >
               Register
             </button>
           </div>
         )}
-        <Register />
+
+        {showLogin && <Login setShowLogin={setShowLogin} />}
+        {showRegister && <Register setShowRegister={setShowRegister} />}
       </ReactMapGL>
     </div>
   );
