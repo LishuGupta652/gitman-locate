@@ -122,7 +122,27 @@ function App() {
             onClose={() => setNewPlace(null)}
             anchor="left"
           >
-            first
+            <form action="">
+              <label htmlFor="">Title</label>
+              <input type="text" placeholder="Enter a title" />
+              <label htmlFor="">Review</label>
+              <textarea
+                name=""
+                id=""
+                placeholder="Sayt us something about the place."
+              ></textarea>
+              <label htmlFor="">Rating</label>
+              <select name="" id="">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+              <button className="submitButton" type="submit">
+                Add Pin
+              </button>
+            </form>
           </Popup>
         )}
       </ReactMapGL>
