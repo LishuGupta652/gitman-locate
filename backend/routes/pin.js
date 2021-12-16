@@ -3,7 +3,6 @@ const Pin = require("../models/Pin");
 
 // Create a pin
 router.post("/", async (req, res) => {
-  console.log(req.body);
   const newPin = new Pin(req.body);
 
   if (req.body) {
@@ -19,5 +18,13 @@ router.post("/", async (req, res) => {
 });
 
 // Get a pin
+router.get("/", async (req, res) => {
+  try {
+    const pins = await Pin.find();
+    return res.status(200).json({ pins });
+  } catch (err) {
+    return res.status(500).send({ err: err.message });
+  }
+});
 
 module.exports = router;
