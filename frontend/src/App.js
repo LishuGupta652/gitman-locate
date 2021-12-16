@@ -40,6 +40,11 @@ function App() {
 
   const handleAddClick = (e) => {
     console.log(e);
+    const [long, lat] = e.lngLat;
+    setNewPlace({
+      lat,
+      long,
+    });
   };
   return (
     <div className="App">
@@ -104,14 +109,18 @@ function App() {
               </div>
             </>
           ))}
-        {/* <Popup
-          latitude={}
-          longitude={}
-          closeButton={true}
-          closeOnClick={true}
-          onClose={() => setCurrentPlaceId(null)}
-          anchor="left"
-        ></Popup> */}
+        {newPlace && (
+          <Popup
+            latitude={newPlace.lat}
+            longitude={newPlace.long}
+            closeButton={true}
+            closeOnClick={true}
+            onClose={() => setNewPlace(null)}
+            anchor="left"
+          >
+            first
+          </Popup>
+        )}
       </ReactMapGL>
     </div>
   );
