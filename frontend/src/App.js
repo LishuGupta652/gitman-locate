@@ -92,8 +92,8 @@ function App() {
                 <Marker
                   latitude={pin.lat}
                   longitude={pin.long}
-                  offsetLeft={-20}
-                  offsetTop={-10}
+                  offsetLeft={-viewport.zoom * 3.5}
+                  offsetTop={-viewport.zoom * 7}
                 >
                   <Room
                     style={{
