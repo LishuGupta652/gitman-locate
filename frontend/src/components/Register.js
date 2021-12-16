@@ -1,4 +1,4 @@
-import { Room } from "@mui/icons-material";
+import { Cancel, Room } from "@mui/icons-material";
 import { useRef, useState } from "react";
 import axios from "axios";
 
@@ -44,6 +44,7 @@ const Register = () => {
 
         {error && <span className="error">Something went wrong</span>}
       </form>
+      <Cancel />
     </div>
   );
 };
