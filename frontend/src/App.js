@@ -53,7 +53,7 @@ function App() {
         {...viewport}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
-        mapStyle="mapbox://styles/gitman/ckx9bxgi4asrn14o3nar1l32q"
+        mapStyle="mapbox://styles/gitman/ckx9gi15o0puk16p4n137enk4"
         onDblClick={handleAddClick}
         transitionDuration={500}
       >
@@ -119,7 +119,6 @@ function App() {
             longitude={newPlace.long}
             closeButton={true}
             closeOnClick={true}
-            onClose={() => setNewPlace(null)}
             anchor="left"
           >
             <form action="">
