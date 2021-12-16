@@ -37,6 +37,10 @@ function App() {
   const handleMarkerClick = (id) => {
     setCurrentPlaceId(id);
   };
+
+  const handleAddClick = (e) => {
+    console.log(e);
+  };
   return (
     <div className="App">
       <ReactMapGL
@@ -44,6 +48,7 @@ function App() {
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX}
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapStyle="mapbox://styles/gitman/ckx9bxgi4asrn14o3nar1l32q"
+        onDblClick={handleAddClick}
       >
         {pins &&
           pins.map((pin, index) => (
@@ -99,6 +104,14 @@ function App() {
               </div>
             </>
           ))}
+        {/* <Popup
+          latitude={}
+          longitude={}
+          closeButton={true}
+          closeOnClick={true}
+          onClose={() => setCurrentPlaceId(null)}
+          anchor="left"
+        ></Popup> */}
       </ReactMapGL>
     </div>
   );
