@@ -34,8 +34,9 @@ function App() {
     getPins();
   }, []);
 
-  const handleMarkerClick = (id) => {
+  const handleMarkerClick = (id, lat, long) => {
     setCurrentPlaceId(id);
+    setViewport({ ...viewport, latitude: lat, longitude: long, zoom: 5 });
   };
 
   const handleAddClick = (e) => {
@@ -54,6 +55,7 @@ function App() {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapStyle="mapbox://styles/gitman/ckx9bxgi4asrn14o3nar1l32q"
         onDblClick={handleAddClick}
+        transitionDuration={500}
       >
         {pins &&
           pins.map((pin, index) => (
@@ -72,7 +74,9 @@ function App() {
                       fontSize: viewport.zoom * 7,
                       cursor: "pointer",
                     }}
-                    onClick={() => handleMarkerClick(pin._id)}
+                    onClick={() =>
+                      handleMarkerClick(pin._id, pin.lat, pin.long)
+                    }
                   />
                 </Marker>
                 {pin._id === currentPlaceId && (
