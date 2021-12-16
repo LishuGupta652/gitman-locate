@@ -20,7 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // Using the routes as middlesware
 app.use("/api/v1/pin", pinRoute);
-app.use("/api/v1/pin", userRoute);
+app.use("/api/v1/user", userRoute);
 // using url shortner routes
 // using main routes
 app.get("/", (req, res) => {
@@ -28,6 +28,11 @@ app.get("/", (req, res) => {
     message: "Welcome to the API",
     routes: {
       "/api/v1/pin": "Get all pins",
+      "/api/v1/pin/": "Get a pin",
+      "/api/v1/pin/": "Post a pin",
+      "/api/v1/pin/:id/delete": "Delete a pin",
+
+      "/api/v1/user": "Register a user",
     },
   });
 });
