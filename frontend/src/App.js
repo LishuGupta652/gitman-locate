@@ -53,7 +53,7 @@ function App() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault(0);
 
     const newPin = {
@@ -64,6 +64,15 @@ function App() {
       lat: newPlace.lat,
       long: newPlace.long,
     };
+
+    try {
+      const res = await axios.post("/pin", newPin);
+      console.log(res.data);
+      setPins([...pins, res.data.pin]);
+      setNewPlace(null);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
