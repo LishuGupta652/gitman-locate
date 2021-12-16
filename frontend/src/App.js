@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-
+import FavoriteIcon from "@mui/icons-material/Favorite";
 function App() {
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -20,12 +20,12 @@ function App() {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
       >
         <Marker
-          latitude={37.78}
-          longitude={-122.41}
+          latitude={27.1751}
+          longitude={78.0421}
           offsetLeft={-20}
           offsetTop={-10}
         >
-          <div>You are here</div>
+          <FavoriteIcon style={{ color: "red" }} />
         </Marker>
       </ReactMapGL>
     </div>
