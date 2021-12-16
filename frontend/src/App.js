@@ -52,6 +52,20 @@ function App() {
       long,
     });
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault(0);
+
+    const newPin = {
+      username: currentUser,
+      title,
+      desc,
+      rating,
+      lat: newPlace.lat,
+      long: newPlace.long,
+    };
+  };
+
   return (
     <div className="App">
       <ReactMapGL
@@ -127,17 +141,22 @@ function App() {
             anchor="left"
             onClose={() => setNewPlace(null)}
           >
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
               <label htmlFor="">Title</label>
-              <input type="text" placeholder="Enter a title" />
+              <input
+                type="text"
+                placeholder="Enter a title"
+                onChange={(e) => setTitle(e.target.value)}
+              />
               <label htmlFor="">Review</label>
               <textarea
                 name=""
                 id=""
                 placeholder="Sayt us something about the place."
+                onChange={(e) => setDesc(e.target.value)}
               ></textarea>
               <label htmlFor="">Rating</label>
-              <select name="" id="">
+              <select name="" id="" onChange={(e) => setRating(e.target.value)}>
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
