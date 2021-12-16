@@ -1,5 +1,6 @@
 import { Room } from "@mui/icons-material";
 import { useRef, useState } from "react";
+import axios from "axios";
 
 const Register = () => {
   const [success, setSuccess] = useState(false);
@@ -8,12 +9,30 @@ const Register = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const newUser = {
+      username: nameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    };
+
+    try {
+      const res = await axios.post("/register", newUser);
+      console.log(res);
+      setSuccess(true);
+    } catch (err) {
+      console.log(err);
+      setError(true);
+    }
+  };
+
   return (
     <div className="registerContainer">
       <div className="logo">
         <Room /> Gitman Locate
       </div>
-      <form action="">
+      <form onSubmit={handleSubmit}>
         <input type="text" placeholder="username" ref={nameRef} />
         <input type="email" placeholder="email" ref={emailRef} />
         <input type="password" placeholder="password" ref={passwordRef} />
