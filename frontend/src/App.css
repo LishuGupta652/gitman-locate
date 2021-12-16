@@ -173,3 +173,25 @@ textarea::placeholder {
   align-items: center;
   justify-content: space-between;
 }
+.logo {
+  color: slateblue;
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+}
+.registerButton {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: slateblue;
+}
+.success {
+  color: green;
+  font-size: 12px;
+}
+.error {
+  color: red;
+  font-size: 12px;
+  text-align: center;
+}
