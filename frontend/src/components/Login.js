@@ -11,7 +11,6 @@ const Login = ({ setShowLogin }) => {
     e.preventDefault();
     const newUser = {
       username: nameRef.current.value,
-      email: emailRef.current.value,
       password: passwordRef.current.value,
     };
 
@@ -19,7 +18,6 @@ const Login = ({ setShowLogin }) => {
       const res = await axios.post("/user/register", newUser);
       setError(false);
       console.log(res);
-      setSuccess(true);
     } catch (err) {
       console.log(err);
       setError(true);

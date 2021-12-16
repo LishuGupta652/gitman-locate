@@ -2,11 +2,12 @@ import "./App.css";
 
 import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
-import { FavoriteIcon, Login, Room, Star } from "@mui/icons-material/";
+import { FavoriteIcon, Room, Star } from "@mui/icons-material/";
 import axios from "axios";
 
 import { format } from "timeago.js";
 import Register from "./components/Register";
+import Login from "./components/Login";
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
