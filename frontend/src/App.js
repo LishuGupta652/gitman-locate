@@ -10,6 +10,7 @@ import { format } from "timeago.js";
 function App() {
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
+  const currentUser = "lishu";
 
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -55,7 +56,8 @@ function App() {
                 >
                   <Room
                     style={{
-                      color: "slateblue ",
+                      color:
+                        pin.username === currentUser ? "tomato" : "slateblue",
                       fontSize: viewport.zoom * 7,
                       cursor: "pointer",
                     }}
