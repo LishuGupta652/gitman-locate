@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { FavoriteIcon, Room, Star } from "@mui/icons-material/";
 import axios from "axios";
+
+import { format } from "timeago.js";
+
 function App() {
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -73,7 +76,7 @@ function App() {
                     <span className="username">
                       Created By <b>{pin.username}</b>
                     </span>
-                    <span className="date">1 hours ago</span>
+                    <span className="date">{format(pin.createdAt)}</span>
                   </div>
                 </Popup>
               </div>

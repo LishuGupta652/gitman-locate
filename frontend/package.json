@@ -17,6 +17,7 @@
     "react-map-gl": "^6.1.18",
     "react-scripts": "5.0.0",
     "styled-components": "^5.3.3",
+    "timeago.js": "^4.0.2",
     "web-vitals": "^2.1.2"
   },
   "scripts": {
