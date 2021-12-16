@@ -118,8 +118,9 @@ function App() {
             latitude={newPlace.lat}
             longitude={newPlace.long}
             closeButton={true}
-            closeOnClick={true}
+            closeOnClick={false}
             anchor="left"
+            onClose={() => setNewPlace(null)}
           >
             <form action="">
               <label htmlFor="">Title</label>
