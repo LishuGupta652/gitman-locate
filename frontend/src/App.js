@@ -1,8 +1,9 @@
 import "./App.css";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactMapGL, { Marker, Popup } from "react-map-gl";
 import { FavoriteIcon, Room, Star } from "@mui/icons-material/";
+import axios from "axios";
 function App() {
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -12,6 +13,19 @@ function App() {
     zoom: 4,
   });
 
+  const [pins, setPins] = useState([]);
+  useEffect(() => {
+    const getPins = async () => {
+      try {
+        const res = await axios.get("/pins");
+        console.log(data);
+        setPins(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getPins();
+  }, []);
   return (
     <div className="App">
       <ReactMapGL
