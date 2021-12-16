@@ -50,14 +50,14 @@ function App() {
               latitude={pin.lat}
               longitude={pin.long}
               closeButton={true}
-              closeOnClick={false}
+              closeOnClick={true}
               anchor="left"
             >
               <div className="card">
                 <label htmlFor="">Place</label>
-                <h4 className="place">Taj Mahal</h4>
+                <h4 className="place">{pin.title}</h4>
                 <label htmlFor="">Review</label>
-                <p className="desc">Beautiful place.I like it.</p>
+                <p className="desc">{pin.desc}</p>
                 <label htmlFor="">Rating</label>
                 <div className="start">
                   <Star className="star" />
@@ -69,7 +69,7 @@ function App() {
 
                 <label htmlFor="">Information</label>
                 <span className="username">
-                  Created By <b>Lishu gupta</b>
+                  Created By <b>{pin.username}</b>
                 </span>
                 <span className="date">1 hours ago</span>
               </div>
