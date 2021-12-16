@@ -18,7 +18,7 @@ function App() {
     const getPins = async () => {
       try {
         const res = await axios.get("/pins");
-        console.log(data);
+        console.log(res);
         setPins(res.data);
       } catch (err) {
         console.log(err);
