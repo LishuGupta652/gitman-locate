@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useState } from "react";
 import ReactMapGL, { Marker } from "react-map-gl";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import { FavoriteIcon, Room } from "@mui/icons-material/";
 function App() {
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -25,7 +25,7 @@ function App() {
           offsetLeft={-20}
           offsetTop={-10}
         >
-          <FavoriteIcon style={{ color: "red" }} />
+          <Room style={{ color: "red", fontSize: viewport.zoom }} />
         </Marker>
       </ReactMapGL>
     </div>
