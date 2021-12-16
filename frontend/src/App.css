@@ -131,3 +131,19 @@ textarea::placeholder {
   background-color: tomato;
   cursor: pointer;
 }
+
+.button {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+}
+.logout {
+  background-color: tomato;
+}
+.login {
+  background-color: teal;
+}
+.register {
+  background-color: slateblue;
+}
