@@ -137,6 +137,7 @@ textarea::placeholder {
   padding: 5px;
   border-radius: 5px;
   color: white;
+  cursor: pointer;
 }
 .logout {
   background-color: tomato;
@@ -145,7 +146,7 @@ textarea::placeholder {
   background-color: teal;
 }
 .register {
-  background-color: slateblue;
+  background-color: rgb(77, 72, 115);
 }
 .buttons,
 .logout {

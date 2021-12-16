@@ -6,8 +6,10 @@ import { FavoriteIcon, Room, Star } from "@mui/icons-material/";
 import axios from "axios";
 
 import { format } from "timeago.js";
+import Register from "./components/Register";
 
 function App() {
+  const [currentUser, setCurrentUser] = useState(null);
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
   const [newPlace, setNewPlace] = useState(null);
@@ -15,8 +17,6 @@ function App() {
   const [title, setTitle] = useState("");
   const [rating, setRating] = useState(0);
   const [desc, setDesc] = useState("");
-
-  const currentUser = "test";
 
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -183,6 +183,7 @@ function App() {
             <button className="button register">Register</button>
           </div>
         )}
+        <Register />
       </ReactMapGL>
     </div>
   );
