@@ -58,12 +58,13 @@ function App() {
                     onClick={() => handleMarkerClick(pin._id)}
                   />
                 </Marker>
-                {p._id === currentPlaceId && (
+                {pin._id === currentPlaceId && (
                   <Popup
                     latitude={pin.lat}
                     longitude={pin.long}
                     closeButton={true}
                     closeOnClick={true}
+                    onClose={() => setCurrentPlaceId(null)}
                     anchor="left"
                   >
                     <div className="card">
