@@ -9,13 +9,13 @@ const Login = ({ setShowLogin }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const newUser = {
+    const user = {
       username: nameRef.current.value,
       password: passwordRef.current.value,
     };
 
     try {
-      const res = await axios.post("/user/register", newUser);
+      const res = await axios.post("/user/login", user);
       setError(false);
       console.log(res);
     } catch (err) {
