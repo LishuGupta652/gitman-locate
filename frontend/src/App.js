@@ -18,8 +18,8 @@ function App() {
     const getPins = async () => {
       try {
         const res = await axios.get("/pin");
-        console.log(res);
-        setPins(res.data);
+        console.log(res.data.pins);
+        setPins(res.data.pins);
       } catch (err) {
         console.log(err);
       }
@@ -34,48 +34,51 @@ function App() {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapStyle="mapbox://styles/gitman/ckx9bxgi4asrn14o3nar1l32q"
       >
-        {pins.map((pin) => (
-          <>
-            <Marker
-              latitude={pin.lat}
-              longitude={pin.long}
-              offsetLeft={-20}
-              offsetTop={-10}
-            >
-              <Room
-                style={{ color: "slateblue ", fontSize: viewport.zoom * 5 }}
-              />
-            </Marker>
-            <Popup
-              latitude={pin.lat}
-              longitude={pin.long}
-              closeButton={true}
-              closeOnClick={true}
-              anchor="left"
-            >
-              <div className="card">
-                <label htmlFor="">Place</label>
-                <h4 className="place">{pin.title}</h4>
-                <label htmlFor="">Review</label>
-                <p className="desc">{pin.desc}</p>
-                <label htmlFor="">Rating</label>
-                <div className="start">
-                  <Star className="star" />
-                  <Star className="star" />
-                  <Star className="star" />
-                  <Star className="star" />
-                  <Star className="star" />
-                </div>
+        {pins &&
+          pins.map((pin, index) => (
+            <>
+              <div key={pin._id}>
+                <Marker
+                  latitude={pin.lat}
+                  longitude={pin.long}
+                  offsetLeft={-20}
+                  offsetTop={-10}
+                >
+                  <Room
+                    style={{ color: "slateblue ", fontSize: viewport.zoom * 5 }}
+                  />
+                </Marker>
+                <Popup
+                  latitude={pin.lat}
+                  longitude={pin.long}
+                  closeButton={true}
+                  closeOnClick={true}
+                  anchor="left"
+                >
+                  <div className="card">
+                    <label htmlFor="">Place</label>
+                    <h4 className="place">{pin.title}</h4>
+                    <label htmlFor="">Review</label>
+                    <p className="desc">{pin.desc}</p>
+                    <label htmlFor="">Rating</label>
+                    <div className="start">
+                      <Star className="star" />
+                      <Star className="star" />
+                      <Star className="star" />
+                      <Star className="star" />
+                      <Star className="star" />
+                    </div>
 
-                <label htmlFor="">Information</label>
-                <span className="username">
-                  Created By <b>{pin.username}</b>
-                </span>
-                <span className="date">1 hours ago</span>
+                    <label htmlFor="">Information</label>
+                    <span className="username">
+                      Created By <b>{pin.username}</b>
+                    </span>
+                    <span className="date">1 hours ago</span>
+                  </div>
+                </Popup>
               </div>
-            </Popup>
-          </>
-        ))}
+            </>
+          ))}
       </ReactMapGL>
     </div>
   );
