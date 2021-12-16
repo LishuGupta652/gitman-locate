@@ -54,7 +54,11 @@ function App() {
                   offsetTop={-10}
                 >
                   <Room
-                    style={{ color: "slateblue ", fontSize: viewport.zoom * 5 }}
+                    style={{
+                      color: "slateblue ",
+                      fontSize: viewport.zoom * 7,
+                      cursor: "pointer",
+                    }}
                     onClick={() => handleMarkerClick(pin._id)}
                   />
                 </Marker>
