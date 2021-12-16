@@ -16,7 +16,7 @@ function App() {
   const [rating, setRating] = useState(0);
   const [desc, setDesc] = useState("");
 
-  const currentUser = "lishu";
+  const currentUser = "test";
 
   const [viewport, setViewport] = useState({
     width: "100vw",
@@ -123,11 +123,7 @@ function App() {
                       <p className="desc">{pin.desc}</p>
                       <label htmlFor="">Rating</label>
                       <div className="start">
-                        <Star className="star" />
-                        <Star className="star" />
-                        <Star className="star" />
-                        <Star className="star" />
-                        <Star className="star" />
+                        {Array(pin.rating).fill(<Star className="star" />)}
                       </div>
 
                       <label htmlFor="">Information</label>
