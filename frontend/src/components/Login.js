@@ -2,7 +2,7 @@ import { Cancel, Room } from "@mui/icons-material";
 import { useRef, useState } from "react";
 import axios from "axios";
 
-const Login = ({ setShowLogin, myStorage }) => {
+const Login = ({ setShowLogin, myStorage, setCurrentUser }) => {
   const [error, setError] = useState(false);
   const nameRef = useRef();
   const passwordRef = useRef();
@@ -20,6 +20,7 @@ const Login = ({ setShowLogin, myStorage }) => {
         user
       );
       myStorage.setItem("user", res.data.username);
+      setCurrentUser(res.data.username);
       setError(false);
       console.log(res);
     } catch (err) {
