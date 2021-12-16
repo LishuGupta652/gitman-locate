@@ -102,3 +102,12 @@ label {
 .desc {
   font-size: 14px;
 }
+.star {
+  color: gold;
+}
+.username {
+  font-style: 14px;
+}
+.date {
+  font-style: 10px;
+}

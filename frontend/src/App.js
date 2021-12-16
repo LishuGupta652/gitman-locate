@@ -28,7 +28,7 @@ function App() {
         >
           <Room style={{ color: "slateblue ", fontSize: viewport.zoom * 5 }} />
         </Marker>
-        <Popup
+        {/* <Popup
           latitude={27.1751}
           longitude={78.0421}
           closeButton={true}
@@ -42,11 +42,11 @@ function App() {
             <p className="desc">Beautiful place.I like it.</p>
             <label htmlFor="">Rating</label>
             <div className="start">
-              <Star />
-              <Star />
-              <Star />
-              <Star />
-              <Star />
+              <Star className="star" />
+              <Star className="star" />
+              <Star className="star" />
+              <Star className="star" />
+              <Star className="star" />
             </div>
 
             <label htmlFor="">Information</label>
@@ -55,7 +55,7 @@ function App() {
             </span>
             <span className="date">1 hours ago</span>
           </div>
-        </Popup>
+        </Popup> */}
       </ReactMapGL>
     </div>
   );
