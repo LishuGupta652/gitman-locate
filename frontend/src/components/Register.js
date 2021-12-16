@@ -44,7 +44,7 @@ const Register = () => {
 
         {error && <span className="error">Something went wrong</span>}
       </form>
-      <Cancel />
+      <Cancel className="registerCancel" />
     </div>
   );
 };

@@ -18,6 +18,9 @@ function App() {
   const [rating, setRating] = useState(0);
   const [desc, setDesc] = useState("");
 
+  const [showRegister, setShowRegister] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
