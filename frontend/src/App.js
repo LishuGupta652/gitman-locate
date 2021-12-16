@@ -10,6 +10,7 @@ import { format } from "timeago.js";
 function App() {
   const [pins, setPins] = useState([]);
   const [currentPlaceId, setCurrentPlaceId] = useState(null);
+  const [newPlace, setNewPlace] = useState(null);
   const currentUser = "lishu";
 
   const [viewport, setViewport] = useState({
