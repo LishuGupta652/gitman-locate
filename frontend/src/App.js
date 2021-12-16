@@ -8,6 +8,9 @@ import axios from "axios";
 import { format } from "timeago.js";
 
 function App() {
+  const [pins, setPins] = useState([]);
+  const [currentPlaceId, setCurrentPlaceId] = useState(null);
+
   const [viewport, setViewport] = useState({
     width: "100vw",
     height: "100vh",
@@ -16,7 +19,6 @@ function App() {
     zoom: 4,
   });
 
-  const [pins, setPins] = useState([]);
   useEffect(() => {
     const getPins = async () => {
       try {
@@ -29,6 +31,10 @@ function App() {
     };
     getPins();
   }, []);
+
+  const handleMarkerClick = (id) => {
+    setCurrentPlaceId(id);
+  };
   return (
     <div className="App">
       <ReactMapGL
@@ -49,36 +55,39 @@ function App() {
                 >
                   <Room
                     style={{ color: "slateblue ", fontSize: viewport.zoom * 5 }}
+                    onClick={() => handleMarkerClick(pin._id)}
                   />
                 </Marker>
-                <Popup
-                  latitude={pin.lat}
-                  longitude={pin.long}
-                  closeButton={true}
-                  closeOnClick={true}
-                  anchor="left"
-                >
-                  <div className="card">
-                    <label htmlFor="">Place</label>
-                    <h4 className="place">{pin.title}</h4>
-                    <label htmlFor="">Review</label>
-                    <p className="desc">{pin.desc}</p>
-                    <label htmlFor="">Rating</label>
-                    <div className="start">
-                      <Star className="star" />
-                      <Star className="star" />
-                      <Star className="star" />
-                      <Star className="star" />
-                      <Star className="star" />
-                    </div>
+                {p._id === currentPlaceId && (
+                  <Popup
+                    latitude={pin.lat}
+                    longitude={pin.long}
+                    closeButton={true}
+                    closeOnClick={true}
+                    anchor="left"
+                  >
+                    <div className="card">
+                      <label htmlFor="">Place</label>
+                      <h4 className="place">{pin.title}</h4>
+                      <label htmlFor="">Review</label>
+                      <p className="desc">{pin.desc}</p>
+                      <label htmlFor="">Rating</label>
+                      <div className="start">
+                        <Star className="star" />
+                        <Star className="star" />
+                        <Star className="star" />
+                        <Star className="star" />
+                        <Star className="star" />
+                      </div>
 
-                    <label htmlFor="">Information</label>
-                    <span className="username">
-                      Created By <b>{pin.username}</b>
-                    </span>
-                    <span className="date">{format(pin.createdAt)}</span>
-                  </div>
-                </Popup>
+                      <label htmlFor="">Information</label>
+                      <span className="username">
+                        Created By <b>{pin.username}</b>
+                      </span>
+                      <span className="date">{format(pin.createdAt)}</span>
+                    </div>
+                  </Popup>
+                )}
               </div>
             </>
           ))}
