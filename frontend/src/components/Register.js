@@ -18,7 +18,10 @@ const Register = ({ setShowRegister }) => {
     };
 
     try {
-      const res = await axios.post("/user/register", newUser);
+      const res = await axios.post(
+        "http://localhost:5000/api/v1/user/register",
+        newUser
+      );
       setError(false);
       console.log(res);
       setSuccess(true);

@@ -2,7 +2,7 @@ import { Cancel, Room } from "@mui/icons-material";
 import { useRef, useState } from "react";
 import axios from "axios";
 
-const Login = ({ setShowLogin }) => {
+const Login = ({ setShowLogin, myStorage }) => {
   const [error, setError] = useState(false);
   const nameRef = useRef();
   const passwordRef = useRef();
@@ -15,7 +15,11 @@ const Login = ({ setShowLogin }) => {
     };
 
     try {
-      const res = await axios.post("/user/login", user);
+      const res = await axios.post(
+        "http://localhost:5000/api/v1/user/login",
+        user
+      );
+      myStorage.setItem("user", res.data.username);
       setError(false);
       console.log(res);
     } catch (err) {
