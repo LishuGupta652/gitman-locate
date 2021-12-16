@@ -25,6 +25,9 @@ const PinSchema = new mongoose.Schema(
       type: Number,
       require: true,
     },
+    desc: {
+      type: String,
+    },
   },
   { timestamps: true }
 );
