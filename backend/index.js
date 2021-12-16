@@ -32,7 +32,8 @@ app.get("/", (req, res) => {
       "/api/v1/pin/": "Post a pin",
       "/api/v1/pin/:id/delete": "Delete a pin",
 
-      "/api/v1/user": "Register a user",
+      "/api/v1/user/register": "Register a user",
+      "/api/v1/user/login": "Login a user",
     },
   });
 });
