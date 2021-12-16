@@ -18,7 +18,8 @@ const Register = () => {
     };
 
     try {
-      const res = await axios.post("/register", newUser);
+      const res = await axios.post("/user/register", newUser);
+      setError(false);
       console.log(res);
       setSuccess(true);
     } catch (err) {
