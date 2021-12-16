@@ -1,0 +1,14 @@
+POST http://localhost:3000/api/v1/pins HTTP/1.1
+Content-Type: : application/json
+
+{
+    "username" : "lishu",
+    "title"  : "Trichy",
+    "desc": "This was an amazing place",
+    "rating" : 4,
+    "lat": 12313,
+    "long":12333 
+}
+
+###
+GET http://localhost:3000/ HTTP/1.1
