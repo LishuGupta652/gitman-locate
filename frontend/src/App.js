@@ -174,6 +174,9 @@ function App() {
             </form>
           </Popup>
         )}
+        <button className="button logout">Log Out</button>
+        <button className="button login">Login</button>
+        <button className="button register">Register</button>
       </ReactMapGL>
     </div>
   );
