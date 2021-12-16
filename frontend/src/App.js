@@ -182,8 +182,18 @@ function App() {
           <button className="button logout">Log Out</button>
         ) : (
           <div className="buttons">
-            <button className="button login">Login</button>
-            <button className="button register">Register</button>
+            <button
+              className="button login"
+              onClick={() => setShowLogin(!showLogin)}
+            >
+              Login
+            </button>
+            <button
+              className="button register"
+              onClick={() => setShowLogin(!showLogin)}
+            >
+              Register
+            </button>
           </div>
         )}
         <Register />
