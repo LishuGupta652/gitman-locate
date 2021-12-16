@@ -34,42 +34,48 @@ function App() {
         onViewportChange={(nextViewport) => setViewport(nextViewport)}
         mapStyle="mapbox://styles/gitman/ckx9bxgi4asrn14o3nar1l32q"
       >
-        <Marker
-          latitude={27.1751}
-          longitude={78.0421}
-          offsetLeft={-20}
-          offsetTop={-10}
-        >
-          <Room style={{ color: "slateblue ", fontSize: viewport.zoom * 5 }} />
-        </Marker>
-        {/* <Popup
-          latitude={27.1751}
-          longitude={78.0421}
-          closeButton={true}
-          closeOnClick={false}
-          anchor="left"
-        >
-          <div className="card">
-            <label htmlFor="">Place</label>
-            <h4 className="place">Taj Mahal</h4>
-            <label htmlFor="">Review</label>
-            <p className="desc">Beautiful place.I like it.</p>
-            <label htmlFor="">Rating</label>
-            <div className="start">
-              <Star className="star" />
-              <Star className="star" />
-              <Star className="star" />
-              <Star className="star" />
-              <Star className="star" />
-            </div>
+        {pins.map((pin) => (
+          <>
+            <Marker
+              latitude={pin.lat}
+              longitude={pin.long}
+              offsetLeft={-20}
+              offsetTop={-10}
+            >
+              <Room
+                style={{ color: "slateblue ", fontSize: viewport.zoom * 5 }}
+              />
+            </Marker>
+            <Popup
+              latitude={pin.lat}
+              longitude={pin.long}
+              closeButton={true}
+              closeOnClick={false}
+              anchor="left"
+            >
+              <div className="card">
+                <label htmlFor="">Place</label>
+                <h4 className="place">Taj Mahal</h4>
+                <label htmlFor="">Review</label>
+                <p className="desc">Beautiful place.I like it.</p>
+                <label htmlFor="">Rating</label>
+                <div className="start">
+                  <Star className="star" />
+                  <Star className="star" />
+                  <Star className="star" />
+                  <Star className="star" />
+                  <Star className="star" />
+                </div>
 
-            <label htmlFor="">Information</label>
-            <span className="username">
-              Created By <b>Lishu gupta</b>
-            </span>
-            <span className="date">1 hours ago</span>
-          </div>
-        </Popup> */}
+                <label htmlFor="">Information</label>
+                <span className="username">
+                  Created By <b>Lishu gupta</b>
+                </span>
+                <span className="date">1 hours ago</span>
+              </div>
+            </Popup>
+          </>
+        ))}
       </ReactMapGL>
     </div>
   );
