@@ -10,4 +10,12 @@ REACT_APP_MAPBOX
 
 # links
 
-- https://fast-springs-46747.herokuapp.com/ | https://git.heroku.com/fast-springs-46747.git
+- https://gitman-locate.herokuapp.com/ | https://git.heroku.com/gitman-locate.git
+
+## git commits
+
+```
+git add .
+git commit -m "commit message: status"
+git push heroku main && git push origin main
+```
